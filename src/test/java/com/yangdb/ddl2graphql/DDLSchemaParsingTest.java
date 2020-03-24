@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 /**
  * see https://www.jooq.org/doc/3.13/manual/sql-building/sql-interpreter/
  */
-public class DDLSchemaToGraphQLSchemaTest {
-    private Meta meta,meta1;
+public class DDLSchemaParsingTest {
+    private Meta meta;
 
 
     @Before
