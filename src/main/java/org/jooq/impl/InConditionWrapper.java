@@ -35,7 +35,7 @@ public class InConditionWrapper implements ConditionInfo {
     }
 
     @Override
-    public List<Field> getExpression() {
+    public List<Object> getExpression() {
         try {
             java.lang.reflect.Field valuesProp = InCondition.class.getDeclaredField("values");
             valuesProp.setAccessible(true);

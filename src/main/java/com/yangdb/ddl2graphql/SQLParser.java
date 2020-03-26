@@ -1,9 +1,7 @@
 package com.yangdb.ddl2graphql;
 
 import org.jooq.*;
-import org.jooq.impl.ConditionInfo;
-import org.jooq.impl.ParserException;
-import org.jooq.impl.SelectQueryImplWrapper;
+import org.jooq.impl.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -19,7 +17,7 @@ public final class SQLParser {
      * @return
      * @throws ParserException
      */
-    public static List<Table> parseTable(Query query) throws ParserException {
+    public static List<TableInfo> parseTable(Query query) throws ParserException {
         if(query instanceof SelectQuery<?>) {
             return new SelectQueryImplWrapper((SelectQuery)query).getTables();
         }
@@ -33,12 +31,13 @@ public final class SQLParser {
      * @return
      * @throws ParserException
      */
-    public static Optional<ConditionInfo> parseWhere(Query query) throws ParserException {
+    public static Optional<QueryInfo> parseQuery(Query query) {
         if(query instanceof SelectQuery<?>) {
-            return Optional.ofNullable(condition(new SelectQueryImplWrapper((SelectQuery) query).getWhereCondition()));
+            return Optional.ofNullable(new SelectQueryImplWrapper((SelectQuery) query));
         }
         //default non matching query
         return Optional.empty();
     }
+
 
 }

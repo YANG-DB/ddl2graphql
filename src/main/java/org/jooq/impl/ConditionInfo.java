@@ -8,7 +8,7 @@ import java.util.List;
 public interface ConditionInfo {
     List<Field> getFields();
 
-    List<Field> getExpression();
+    List<Object> getExpression();
 
     boolean isUnary();
 

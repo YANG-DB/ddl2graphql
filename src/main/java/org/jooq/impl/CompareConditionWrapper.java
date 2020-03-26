@@ -20,7 +20,7 @@ public class CompareConditionWrapper implements ConditionInfo {
     }
 
     @Override
-    public List<Field> getExpression() {
+    public List<Object> getExpression() {
         return Arrays.asList(condition.field2);
     }
 
